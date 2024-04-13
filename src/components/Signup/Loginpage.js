@@ -1,38 +1,41 @@
 import React from 'react';
+import './loginpage.css';
+
+import user_icon from '../assets/person.png';
+import email_icon from '../assets/email.png';
+import password_icon from '../assets/password.png';
 
 
-const Loginpage = (props) => {
+const LoginPage = () => {
+    
     return (
-        <div className={'mainContainer'}>
-            <div className={'titleContainer'}>
-                <div>Login</div>
+        <div className='container'>
+            <div className='header'>
+                <div className="text">Sign Up</div>
+                <div className='underline'></div>
             </div>
-            <br />
-            <div className={'inputContainer'}>
-                <input 
-                    value={''}
-                    placeholder='name@example.com'
-                    onChange={''}
-                    className={'inputBox'}
-                />
-                <label className="errorLabel">{''}</label>
+            <div className='inputs'>
+                <div className='input'>
+                    <img src={user_icon} alt=""/>
+                    <input type="text" placeholder="Name" />
+                </div>
+                <div className='input'>
+                    <img src={email_icon} alt=""/>
+                    <input type="email" placeholder='Email' />
+                </div>
+                <div className='input'>
+                    <img src={password_icon} alt=""/>
+                    <input type="password" placeholder='Password' />
+                </div>
             </div>
-            <br />
-            <div className={'inputContainer'}>
-                <input 
-                    value={''}
-                    placeholder='password'
-                    onChange={''}
-                    className={'inputBox'}
-                />
-                <label className="errorLabel">{''}</label>
-            </div>
-            <br />
-            <div className={'inputContainer'}>
-                <input className={'inputButton'} type='button' onClick={''} value={'Log in'} />
+            <div className='forgot-password'>Forgot Password?</div>
+            <div className='login-extra'>Already Have an Account? Log In Here!</div>
+            <div className='submit-container'>
+                <div className={"submit"}>Sign Up</div>
+
             </div>
         </div>
     )
 }
 
-export default Loginpage;
+export default LoginPage
