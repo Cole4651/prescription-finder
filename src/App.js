@@ -14,11 +14,12 @@ import Aboutpage from "./components/mainpages/Aboutpage.js";
 import Contactpage from "./components/mainpages/Contactpage.js";
 import Loginpage from "./components/Signup/signinpage.js";
 
+
 import CalendarApp from "./components/Calendar/CalendarApp.js";
 
 function Home() {
     return (
-        <CalendarApp />
+        <Homepage />
     );
 }
 function About() {
@@ -47,7 +48,6 @@ function Login() {
     );
 }
 
-import { withAuthInfo, useHostedPageUrls, useLogoutFunction } from '@propelauth/react'
 function App() {
     const { getLoginPageUrl, getSignupPageUrl, getAccountPageUrl } = useHostedPageUrls();
     return (
