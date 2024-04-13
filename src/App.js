@@ -9,12 +9,10 @@ import {
 import { Navbar, Nav } from "react-bootstrap";
 import "./App.css";
 import { FaHome, FaInfoCircle, FaBook, FaPhone } from "react-icons/fa";
+import Homepage from "./components/mainpages/Homepage.js";
 function Home() {
     return (
-        <div className="page">
-            <h2>Home Page</h2>
-            <p>Welcome to the Home Page.</p>
-        </div>
+        <Homepage />
     );
 }
 function About() {
@@ -33,7 +31,7 @@ function Contact() {
         </div>
     );
 }
-function Articles() {
+function Signup() {
     return (
         <div className="page">
             <h2>WIP Page</h2>
@@ -43,7 +41,7 @@ function Articles() {
         </div>
     );
 }
-function Courses() {
+function Login() {
     return (
         <div className="page">
             <h2>WIP Page</h2>
@@ -73,14 +71,14 @@ function App() {
                         <Nav.Link as={Link} to="/about" className="nav-link">
                             <FaInfoCircle /> About
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/articles" className="nav-link">
-                            <FaBook /> Articles
-                        </Nav.Link>
-                        <Nav.Link as={Link} to="/courses" className="nav-link">
-                            <FaBook /> Courses
-                        </Nav.Link>
                         <Nav.Link as={Link} to="/contact" className="nav-link">
-                            <FaPhone /> Contact
+                            <FaBook /> Contact
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/login" className="nav-link">
+                            <FaBook /> Log In
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/signup" className="nav-link">
+                            <FaPhone /> Sign Up
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
@@ -91,8 +89,8 @@ function App() {
                         <Route index element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/articles" element={<Articles />} />
-                        <Route path="/courses" element={<Courses />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<Signup />} />
                     </Route>
                 </Routes>
             </div>
