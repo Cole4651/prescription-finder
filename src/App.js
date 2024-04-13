@@ -12,7 +12,7 @@ import { FaHome, FaInfoCircle, FaBook, FaPhone } from "react-icons/fa";
 import Homepage from "./components/mainpages/Homepage.js";
 import Aboutpage from "./components/mainpages/Aboutpage.js";
 import Contactpage from "./components/mainpages/Contactpage.js";
-import Loginpage from "./components/Signup/loginpage.js";
+import Loginpage from "./components/Signup/signinpage.js";
 function Home() {
     return (
         <Homepage />

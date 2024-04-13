@@ -1,12 +1,12 @@
 import React from 'react';
-import './loginpage.css';
+import './signinpage.css';
 
 import user_icon from '../assets/person.png';
 import email_icon from '../assets/email.png';
 import password_icon from '../assets/password.png';
 
 
-const LoginPage = () => {
+const SignUpPage = () => {
     
     return (
         <div className='container'>
@@ -28,7 +28,6 @@ const LoginPage = () => {
                     <input type="password" placeholder='Password' />
                 </div>
             </div>
-            <div className='forgot-password'>Forgot Password?</div>
             <div className='login-extra'>Already Have an Account? Log In Here!</div>
             <div className='submit-container'>
                 <div className={"submit"}>Sign Up</div>
@@ -38,4 +37,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+export default SignUpPage
