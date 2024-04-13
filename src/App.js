@@ -10,6 +10,9 @@ import { Navbar, Nav } from "react-bootstrap";
 import "./App.css";
 import { FaHome, FaInfoCircle, FaBook, FaPhone } from "react-icons/fa";
 import Homepage from "./components/mainpages/Homepage.js";
+import Aboutpage from "./components/mainpages/Aboutpage.js";
+import Contactpage from "./components/mainpages/Contactpage.js";
+import Loginpage from "./components/Signup/loginpage.js";
 function Home() {
     return (
         <Homepage />
@@ -17,18 +20,12 @@ function Home() {
 }
 function About() {
     return (
-        <div className="page">
-            <h2>About Page</h2>
-            <p>Welcome to the About Page.</p>
-        </div>
+        <Aboutpage />
     );
 }
 function Contact() {
     return (
-        <div className="page">
-            <h2>Contact Page</h2>
-            <p>Welcome to the Contact Page.</p>
-        </div>
+        <Contactpage />
     );
 }
 function Signup() {
@@ -43,12 +40,7 @@ function Signup() {
 }
 function Login() {
     return (
-        <div className="page">
-            <h2>WIP Page</h2>
-            <p>
-                This page is a work in progress.
-            </p>
-        </div>
+        <Loginpage />
     );
 }
 function App() {
