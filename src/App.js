@@ -14,10 +14,11 @@ import Aboutpage from "./components/mainpages/Aboutpage.js";
 import Contactpage from "./components/mainpages/Contactpage.js";
 import Loginpage from "./components/Signup/signinpage.js";
 
+import CalendarApp from "./components/Calendar/CalendarApp.js";
 
 function Home() {
     return (
-        <Homepage />
+        <CalendarApp />
     );
 }
 function About() {
