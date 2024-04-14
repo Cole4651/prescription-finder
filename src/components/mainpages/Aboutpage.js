@@ -10,7 +10,6 @@ function Aboutpage () {
                 <h2>About page</h2>
                 <p>Welcome to the About Page</p>
             <div className="page">
-                <h2>Welcome to CalendarApp</h2>
                 <p>We are with the Center for Advanced Proffesional Studies also known as Blue Valley CAPS. This webapp is a project we made for our community outreach. </p>
             </div>
             <div className="fleximg">
