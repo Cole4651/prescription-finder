@@ -1,6 +1,7 @@
 import App from 'App.js';
-import FrontPage from 'components/FrontPage.js';
+import BackApp from 'components/mainpages/BackApp.js';
 import { withAuthInfo, useRedirectFunctions, useLogoutFunction } from '@propelauth/react'
+import CalendarApp from 'components/Calendar/CalendarApp.js';
 
 const AppLogin = withAuthInfo((props) => {
     const logoutFunction = useLogoutFunction()
@@ -10,12 +11,10 @@ const AppLogin = withAuthInfo((props) => {
 
     if (props.isLoggedIn) {
         return (
-            /* <div>
-                <p>You are logged in as {props.user.email}</p>
-                <button onClick={() => redirectToAccountPage()}>Account</button>
-                <button onClick={() => logoutFunction(true)}>Logout</button>
-            </div> */
-            <App />
+            <div>
+                <BackApp />
+                <CalendarApp />
+            </div>
         )
     } else {
         return (
@@ -24,7 +23,7 @@ const AppLogin = withAuthInfo((props) => {
                 <button onClick={() => redirectToLoginPage()}>Login</button>
                 <button onClick={() => redirectToSignupPage()}>Signup</button>
             </div> */
-            <FrontPage />
+            <App />
         )
     }
 })
