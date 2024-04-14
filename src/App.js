@@ -56,7 +56,7 @@ function App() {
                 <Navbar.Brand>
                     <h1 className="navbar-brand-text">
                         <Link to="/" className="brand-link">
-                            Calendarapp
+                            MedPlanner
                         </Link>
                     </h1>
                 </Navbar.Brand>

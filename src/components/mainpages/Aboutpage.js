@@ -10,16 +10,15 @@ function Aboutpage () {
                 <h2>About page</h2>
                 <p>Welcome to the About Page</p>
             <div className="page">
-                <h2>Welcome to CalendarApp</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>We are with the Center for Advanced Proffesional Studies also known as Blue Valley CAPS. This webapp is a project we made for our community outreach. </p>
             </div>
             <div className="fleximg">
                 <img className="promopic" src={randumb} alt="randumb" />
                 <img className="promopic" src={randumb} alt="randumb" />            
             </div>
             <div className="splitcontainer">
-                <p class="splitpage">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p class="splitpage">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="splitpage">CAPS is a nationally recognized, innovative high school program. Students fast forward into their future and are fully immersed in a professional culture, solving real world problems, using industry standard tools and are mentored by actual employers, all while receiving high school and college credit. CAPS is an example of how business, community and public education can partner to produce personalized learning experiences that educate the workforce of tomorrow, especially in high skill, high demand jobs.</p>
+                <p class="splitpage">Nick, Samuel, and Cole. Ms. Riffer is our technology solutions teacher who helped organize us attending HackKU.</p>
             </div>
             </div>
         </div>
