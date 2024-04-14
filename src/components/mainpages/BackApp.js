@@ -1,6 +1,6 @@
 
-// const { getLoginPageUrl, getSignupPageUrl, getAccountPageUrl } = useHostedPageUrls();
-import { withAuthInfo, useRedirectFunctions, useLogoutFunction } from '@propelauth/react';
+import { withAuthInfo, useHostedPageUrls, useLogoutFunction } from '@propelauth/react';
+
 import CalendarApp from 'components/Calendar/CalendarApp.js';
 import React from "react";
 import { Navbar, Nav} from "react-bootstrap";
@@ -15,8 +15,8 @@ import {
 } from "react-router-dom";
 
 const BackApp = withAuthInfo((props) => {
-    const redirectToAccountPage = useRedirectFunctions()
-    const logoutFunction = useLogoutFunction()
+	const { getLoginPageUrl, getSignupPageUrl, getAccountPageUrl } = useHostedPageUrls();
+    const logoutFunction = useLogoutFunction();
     
     return (
         <Router>
@@ -31,13 +31,13 @@ const BackApp = withAuthInfo((props) => {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link as={Link} to={ redirectToAccountPage } className="nav-link">
+                        <Nav.Link as={Link} to={ getAccountPageUrl() } className="nav-link">
                             <FaBook /> Account
                         </Nav.Link>
                         <Navbar.Text>
                             Signed in as: {props.user.email}
                         </Navbar.Text>
-                        <Nav.Link as={Link} to={ logoutFunction } className="nav-link">
+                        <Nav.Link as={Link} onClick={ logoutFunction } className="nav-link">
                             <FaUser /> Log Out
                         </Nav.Link>
                     </Nav>

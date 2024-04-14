@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import "./App.css";
-import { FaHome, FaBook, FaUser } from "react-icons/fa";
+import { FaHome, FaBook, FaUser, FaUserPlus } from "react-icons/fa";
 import Homepage from "./components/mainpages/Homepage.js";
 import { useHostedPageUrls } from '@propelauth/react'
 
@@ -42,7 +42,7 @@ function App() {
                         <FaBook /> Log In
                     </Nav.Link>
                     <Nav.Link as={Link} to={getSignupPageUrl()} className="nav-link">
-                        <FaUser /> Account
+                        <FaUserPlus /> Sign Up
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
