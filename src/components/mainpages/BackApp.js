@@ -1,4 +1,4 @@
-
+// main app page that loads when logged in
 import { withAuthInfo, useHostedPageUrls, useLogoutFunction } from '@propelauth/react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import CalendarApp from 'components/Calendar/CalendarApp.js';
@@ -25,7 +25,7 @@ const BackApp = withAuthInfo((props) => {
                     <Navbar.Brand>
                         <h1 className="navbar-brand-text">
                             <Nav.Link to="/" className="brand-link">
-                                MedPlanner
+                                MedTrack
                             </Nav.Link>
                         </h1>
                     </Navbar.Brand>
@@ -48,7 +48,7 @@ const BackApp = withAuthInfo((props) => {
                 <div className='container'>
                     <Routes>
                         <Route path="/" element={<Outlet />}>
-                            <Route index element={<CalendarApp />} />
+                            <Route index element={<CalendarApp init_events={props.user.properties.metadata} />} />
                         </Route>
                     </Routes>
                 </div>

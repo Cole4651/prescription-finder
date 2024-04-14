@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const localizer = momentLocalizer(moment);
 
-export default function CalendarApp() {
+export default function CalendarApp(init_events) {
     const [events, setEvents] = useState([]); 
     const [showModal, setShowModal] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
@@ -25,15 +25,17 @@ export default function CalendarApp() {
                 start: selectedDate,
                 end: moment(selectedDate).add(1, 'hours').toDate(),
             };
-            setEvents
-            ([...events, newEvent]);
+            setEvents ([...events, newEvent]);
             setShowModal(false);
             setEventTitle('');
         }
     }
 
 
-
+	function getEvents() {
+		console.log(JSON.stringify(events))
+		return ;
+	}
     return (
         <div style={{height: '800px'}}>
             <Calendar 
@@ -68,6 +70,7 @@ export default function CalendarApp() {
                     </div>
                 </div>
             </div>)}
+			<button onClick={getEvents}>Export</button>
         </div>
         
 
