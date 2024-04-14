@@ -4,7 +4,7 @@ import './index.css';
 import AppLogin from './AppLogin.js';
 import reportWebVitals from './reportWebVitals';
 
-import { AuthProvider, withAuthInfo } from "@propelauth/react";
+import { AuthProvider} from "@propelauth/react";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

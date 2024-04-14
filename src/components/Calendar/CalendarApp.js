@@ -7,10 +7,11 @@ import moment from 'moment';
 const localizer = momentLocalizer(moment);
 
 export default function CalendarApp() {
-    const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState([]); 
     const [showModal, setShowModal] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
     const [eventTitle, setEventTitle] = useState('');
+
 
     const handleSelectSlot = (slotInfo) => {
         setShowModal(true);
@@ -24,7 +25,8 @@ export default function CalendarApp() {
                 start: selectedDate,
                 end: moment(selectedDate).add(1, 'hours').toDate(),
             };
-            setEvents([...events, newEvent]);
+            setEvents
+            ([...events, newEvent]);
             setShowModal(false);
             setEventTitle('');
         }
@@ -33,13 +35,12 @@ export default function CalendarApp() {
 
 
     return (
-        <div style={{height: '500px'}}>
+        <div style={{height: '800px'}}>
             <Calendar 
                 localizer={localizer}
                 events={events}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ margin: '50px' }}
                 selectable={true}
                 onSelectSlot={handleSelectSlot}
             />
@@ -48,7 +49,7 @@ export default function CalendarApp() {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
+                            <h5 class="modal-title">Prescription Refill</h5>
                             <button type="button" class="btn-close" onClick={()=> setShowModal(false)}></button>
                         </div>
                         <div class="modal-body">
@@ -62,12 +63,11 @@ export default function CalendarApp() {
                             />
                         </div>
                         <div class="modal-footer">
-                            <button type="button" classname='btn-primary'onClick={saveEvent}>Save changes</button>
+                            <button type="button" className='btn btn-primary'onClick={saveEvent}>Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>)}
-            
         </div>
         
 
