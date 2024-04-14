@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import AppLogin from './AppLogin.js';
 import reportWebVitals from './reportWebVitals';
 
 import { AuthProvider, withAuthInfo } from "@propelauth/react";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<AuthProvider authUrl={process.env.REACT_APP_AUTH_URL}>
 		<React.StrictMode>
-			<App />
+			<AppLogin />
 		</React.StrictMode>
 	</AuthProvider>
 );

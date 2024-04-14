@@ -8,14 +8,13 @@ import {
 } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import "./App.css";
-import { FaHome, FaInfoCircle, FaBook, FaPhone } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaBook, FaUser } from "react-icons/fa";
 import Homepage from "./components/mainpages/Homepage.js";
 import Aboutpage from "./components/mainpages/Aboutpage.js";
 import Contactpage from "./components/mainpages/Contactpage.js";
-import Loginpage from "./components/Signup/signinpage.js";
-
-
+import Signuppage from "./components/Signup/Signuppage.js";
 import CalendarApp from "./components/Calendar/CalendarApp.js";
+import { withAuthInfo, useHostedPageUrls, useLogoutFunction } from '@propelauth/react'
 
 function Home() {
     return (
@@ -44,9 +43,10 @@ function Signup() {
 }
 function Login() {
     return (
-        <Loginpage />
+        <Signuppage />
     );
 }
+
 
 function App() {
     const { getLoginPageUrl, getSignupPageUrl, getAccountPageUrl } = useHostedPageUrls();
@@ -75,8 +75,8 @@ function App() {
                         <Nav.Link as={Link} to={ getLoginPageUrl() } className="nav-link">
                             <FaBook /> Log In
                         </Nav.Link>
-                        <Nav.Link as={Link} to={ getSignupPageUrl() } className="nav-link">
-                            <FaPhone /> Sign Up
+                        <Nav.Link as={Link} to={ getAccountPageUrl() } className="nav-link">
+                            <FaUser /> Account
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
