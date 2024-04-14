@@ -25,7 +25,7 @@ In the future, we plan to make the web app more aesthetically pleasing as well a
 
 ## How to Install and Run the Project
 1. Install Node.js
-2. In terminal type npm install
-3. In terminal type npm start
+2. In terminal type 'npm install'
+3. In terminal type 'npm start'
 ## How to use the Project
 Open the link and create an account to start making events to add the the calendar.
