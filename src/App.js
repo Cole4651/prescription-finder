@@ -13,6 +13,10 @@ import Homepage from "./components/mainpages/Homepage.js";
 import Aboutpage from "./components/mainpages/Aboutpage.js";
 import Contactpage from "./components/mainpages/Contactpage.js";
 import Loginpage from "./components/Signup/signinpage.js";
+
+
+import CalendarApp from "./components/Calendar/CalendarApp.js";
+
 function Home() {
     return (
         <Homepage />
@@ -43,7 +47,9 @@ function Login() {
         <Loginpage />
     );
 }
+
 function App() {
+    const { getLoginPageUrl, getSignupPageUrl, getAccountPageUrl } = useHostedPageUrls();
     return (
         <Router>
             <Navbar className="navbar-bg" expand="lg">
@@ -66,10 +72,10 @@ function App() {
                         <Nav.Link as={Link} to="/contact" className="nav-link">
                             <FaBook /> Contact
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/login" className="nav-link">
+                        <Nav.Link as={Link} to={ getLoginPageUrl() } className="nav-link">
                             <FaBook /> Log In
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/signup" className="nav-link">
+                        <Nav.Link as={Link} to={ getSignupPageUrl() } className="nav-link">
                             <FaPhone /> Sign Up
                         </Nav.Link>
                     </Nav>
