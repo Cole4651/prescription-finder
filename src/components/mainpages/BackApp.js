@@ -3,17 +3,23 @@
 import { withAuthInfo, useRedirectFunctions, useLogoutFunction } from '@propelauth/react';
 import CalendarApp from 'components/Calendar/CalendarApp.js';
 import React from "react";
-import { Navbar, Nav, Link } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 import "./BackApp.css";
 import { FaHome, FaInfoCircle, FaBook, FaUser } from "react-icons/fa";
-
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Routes,
+    Outlet,
+} from "react-router-dom";
 
 const BackApp = withAuthInfo((props) => {
     const redirectToAccountPage = useRedirectFunctions()
     const logoutFunction = useLogoutFunction()
     
     return (
+        <Router>
             <Navbar className="navbar-bg" expand="lg">
                 <Navbar.Brand>
                     <h1 className="navbar-brand-text">
@@ -37,6 +43,14 @@ const BackApp = withAuthInfo((props) => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+                <div className='container'>
+                    <Routes>
+                        <Route path="/" element={<Outlet />}>
+                            <Route index element={<CalendarApp />} />
+                        </Route>
+                    </Routes>
+                </div>
+        </Router>
     );
 
 })
