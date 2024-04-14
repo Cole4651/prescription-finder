@@ -1,3 +1,5 @@
+# MedTrack
+
 ## Inspiration
 We originally had this idea because we all feel we have trouble managing our time, but we were aware of the many general solutions  for that. Our CAPS teacher was able to push us towards something centered around mental health, and it was originally going to be a reminder system for dementia that could be managed by a caretaker; however, we felt that would be too depressing to present and too ambitious to create in 36 hours, but we still liked our idea of a reminder system, and found we all had trouble managing our prescriptions as well as many others so landed on this idea.  
 ## What it does
