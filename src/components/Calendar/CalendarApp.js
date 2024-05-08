@@ -1,77 +1,78 @@
-import format from "date-fns/format";
-import getDay from "date-fns/getDay";
-import parse from "date-fns/parse";
-import startOfWeek from "date-fns/startOfWeek";
-import React, { useState } from "react";
-import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import "./CalendarApp.css";
+import React, {useState} from 'react';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
 
-const locales = {
-    "en-US": require("date-fns/locale/en-US"),
-};
-const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales,
-});
 
-const events = [
-];
+const localizer = momentLocalizer(moment);
 
-function CalendarApp() {
-    const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
-    const [allEvents, setAllEvents] = useState(events);
+export default function CalendarApp(init_events) {
+    const [events, setEvents] = useState([]); 
+    const [showModal, setShowModal] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [eventTitle, setEventTitle] = useState('');
 
-    function handleAddEvent() {
-        
-        for (let i=0; i<allEvents.length; i++){
 
-            const d1 = new Date (allEvents[i].start);
-            const d2 = new Date(newEvent.start);
-            const d3 = new Date(allEvents[i].end);
-            const d4 = new Date(newEvent.end);
-      /*
-          console.log(d1 <= d2);
-          console.log(d2 <= d3);
-          console.log(d1 <= d4);
-          console.log(d4 <= d3);
-            */
-
-             if (
-              ( (d1  <= d2) && (d2 <= d3) ) || ( (d1  <= d4) &&
-                (d4 <= d3) )
-              )
-            {   
-                alert("CLASH"); 
-                break;
-             }
-    
-        }
-        
-        
-        setAllEvents([...allEvents, newEvent]);
+    const handleSelectSlot = (slotInfo) => {
+        setShowModal(true);
+        setSelectedDate(slotInfo.start);
     }
 
-    return (
-        <div className="App">
-            <h1>Calendar</h1>
-            <h2>Add New Event</h2>
-            <div>
-                <input type="text" placeholder="Add Title" style={{ width: "20%", marginRight: "10px" }} value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
-                <DatePicker placeholderText="Start Date" style={{ marginRight: "10px" }} selected={newEvent.start} onChange={(start) => setNewEvent({ ...newEvent, start })} />
-                <DatePicker placeholderText="End Date" selected={newEvent.end} onChange={(end) => setNewEvent({ ...newEvent, end })} />
-                <button stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
-                    Add Event
-                </button>
-            </div>
-            <Calendar localizer={localizer} events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "50px" }} />
-        </div>
-    );
-}
+    const saveEvent = () => {
+        if (eventTitle && selectedDate) {
+            const newEvent = {
+                title: eventTitle,
+                start: selectedDate,
+                end: moment(selectedDate).add(1, 'hours').toDate(),
+            };
+            setEvents ([...events, newEvent]);
+            setShowModal(false);
+            setEventTitle('');
+        }
+    }
 
-export default CalendarApp;
+
+	function getEvents() {
+		console.log(JSON.stringify(events))
+		return ;
+	}
+    return (
+        <div style={{height: '800px'}}>
+            <Calendar 
+                localizer={localizer}
+                events={events}
+                startAccessor="start"
+                endAccessor="end"
+                selectable={true}
+                onSelectSlot={handleSelectSlot}
+            />
+            {showModal && (
+                    <div class="modal" style={{display:'block', backgroundColor:'rgba(0.0.0.0.5)', position:'fixed', top:0, bottom:0, left:0, right:0}}>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Prescription Refill</h5>
+                            <button type="button" class="btn-close" onClick={()=> setShowModal(false)}></button>
+                        </div>
+                        <div class="modal-body">
+                            <label>Prescription Name:</label>
+                            <input 
+                                type='text'
+                                className='form-control'
+                                id='eventTitle'
+                                value={eventTitle}
+                                onChange={(e) => setEventTitle(e.target.value)}
+                            />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" className='btn btn-primary'onClick={saveEvent}>Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>)}
+			<button onClick={getEvents}>Export</button>
+        </div>
+        
+
+    )
+}
