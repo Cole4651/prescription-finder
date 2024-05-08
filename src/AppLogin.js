@@ -1,8 +1,6 @@
 import App from 'App.js';
-import BackApp from 'components/mainpages/BackApp.js';
 import { withAuthInfo, useRedirectFunctions, useLogoutFunction } from '@propelauth/react'
-import CalendarApp from 'components/Calendar/CalendarApp.js';
-
+import CalendarApp from 'components/Calendar/CalendarApp';
 const AppLogin = withAuthInfo((props) => {
     const logoutFunction = useLogoutFunction()
     const { redirectToLoginPage, redirectToSignupPage, redirectToAccountPage } = useRedirectFunctions()
@@ -12,7 +10,6 @@ const AppLogin = withAuthInfo((props) => {
     if (props.isLoggedIn) {
         return (
             <div>
-                <BackApp />
                 <CalendarApp />
             </div>
         )
